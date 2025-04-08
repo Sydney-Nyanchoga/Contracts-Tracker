@@ -1,0 +1,176 @@
+<!-- contracts.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Contract | Contract Management System</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/contracts.css">
+    <!-- Font Awesome or similar icon library would be linked here -->
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="logo">
+            <img src="logo.png" alt="Contract Management System">
+        </div>
+        <nav class="main-nav">
+            <!-- Navigation items would go here -->
+        </nav>
+        <div class="user-menu">
+            <!-- User menu items would go here -->
+        </div>
+    </header>
+
+    <main class="content-area">
+        <div class="container">
+            <div class="contract-header">
+                <h1 class="contract-title">Create New Contract</h1>
+                <div class="contract-status">
+                    <span class="status-label">Draft</span>
+                </div>
+            </div>
+
+            <form class="contract-form">
+                <div class="form-section">
+                    <h2 class="section-title">Basic Information</h2>
+                    
+                    <div class="contract-details-grid">
+                        <div class="form-group">
+                            <label class="detail-label" for="contract-title">Contract Title</label>
+                            <input type="text" id="contract-title" class="form-control" placeholder="Enter contract title">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="detail-label" for="contract-type">Contract Type</label>
+                            <select id="contract-type" class="form-control">
+                                <option value="">Select contract type</option>
+                                <option value="sales">Sales Agreement</option>
+                                <option value="service">Service Agreement</option>
+                                <option value="nda">Non-Disclosure Agreement</option>
+                                <option value="employment">Employment Contract</option>
+                                <option value="license">License Agreement</option>
+                                <option value="purchase">Purchase Order</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="detail-label" for="effective-date">Effective Date</label>
+                            <input type="date" id="effective-date" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="detail-label" for="expiration-date">Expiration Date</label>
+                            <input type="date" id="expiration-date" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2 class="section-title">Parties</h2>
+                    
+                    <div class="contract-details-grid">
+                        <div class="form-group">
+                            <label class="detail-label" for="company-name">Our Company</label>
+                            <input type="text" id="company-name" class="form-control" placeholder="Your Company." >
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="detail-label" for="client-name">Client/Counterparty</label>
+                            <input type="text" id="client-name" class="form-control" placeholder="Enter client name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="detail-label" for="client-address">Client Address</label>
+                            <textarea id="client-address" class="form-control" rows="3" placeholder="Enter client address"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="detail-label" for="client-contact">Client Contact</label>
+                            <input type="text" id="client-contact" class="form-control" placeholder="Enter client contact">
+                        </div>
+                    </div>
+                </div>
+
+            
+                <div class="form-section">
+                    <h2 class="section-title">Approvals Required</h2>
+                    
+                    <div class="approval-config">
+                        <div class="form-check">
+                            <input type="checkbox" id="legal-approval" class="form-check-input">
+                            <label for="legal-approval" class="form-check-label">Legal Department</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input type="checkbox" id="finance-approval" class="form-check-input">
+                            <label for="finance-approval" class="form-check-label">Finance Department</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input type="checkbox" id="management-approval" class="form-check-input">
+                            <label for="management-approval" class="form-check-label">Management</label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input type="checkbox" id="tech-approval" class="form-check-input">
+                            <label for="tech-approval" class="form-check-label">Technical Department</label>
+                        </div>
+                    </div>
+                    
+                    <div class="add-approver">
+                        <button type="button" class="btn btn-outline btn-sm">+ Add Custom Approver</button>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2 class="section-title">Attachments</h2>
+                    
+                    <div class="attachment-upload">
+                        <label for="file-upload" class="file-upload-label">
+                            <span class="upload-icon">📎</span>
+                            <span>Drag files here or click to upload</span>
+                        </label>
+                        <input type="file" id="file-upload" class="file-upload-input" multiple>
+                    </div>
+                    
+                    <div class="attachments-list">
+                        <!-- Attachments will be listed here -->
+                        <div class="empty-attachments">No attachments added yet</div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2 class="section-title">Notes</h2>
+                    <textarea id="contract-notes" class="form-control" rows="4" placeholder="Add any notes or comments about this contract..."></textarea>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <div class="actions-panel">
+        <button type="button" class="btn btn-outline">Save as Draft</button>
+        <button type="button" class="btn btn-outline">Preview</button>
+        <button type="button" class="btn btn-primary">Send for Approval</button>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>© 2025 Contract Management System. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/contract-details.js"></script>
+
+    
+
+<!-- Firebase App (the core Firebase SDK) -->
+<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+<!-- Firebase Firestore -->
+<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+<!-- Firebase Auth (if you plan to add authentication) -->
+<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+</body>
+</html>

@@ -1,0 +1,244 @@
+/* Dashboard Specific Styles */
+.dashboard-header {
+  margin-bottom: var(--spacing-lg);
+}
+
+.dashboard-title {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.dashboard-subtitle {
+  font-size: var(--font-size-md);
+  color: var(--dark-gray);
+  margin-top: var(--spacing-xs);
+}
+
+/* Time filter */
+.time-filter {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
+}
+
+.time-filter-btn {
+  padding: 8px 16px;
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-sm);
+  background-color: var(--white);
+  border: none;
+  color: var(--dark-gray);
+  cursor: pointer;
+}
+
+.time-filter-btn.active {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+/* Stats Cards */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+}
+
+.stat-card {
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-lg);
+  color: white;
+  transition: transform 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+}
+
+.stat-number {
+  font-size: var(--font-size-xxl);
+  font-weight: 700;
+  margin-bottom: var(--spacing-xs);
+}
+
+.stat-label {
+  font-size: var(--font-size-sm);
+  opacity: 0.8;
+}
+
+.stat-footer {
+  margin-top: var(--spacing-md);
+  font-size: var(--font-size-sm);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Status color backgrounds */
+.bg-for-approval {
+  background-color: var(--status-orange-bg);
+}
+
+.bg-sent {
+  background-color: var(--status-blue-bg);
+}
+
+.bg-viewed {
+  background-color: var(--status-purple-bg);
+}
+
+.bg-completed {
+  background-color: var(--status-green-bg);
+}
+
+.bg-expired {
+  background-color: var(--status-red-bg);
+}
+
+.bg-waiting-payment {
+  background-color: var(--status-green-bg);
+}
+
+.bg-declined {
+  background-color: #9e2b25;
+}
+
+/* Recent Documents */
+.recent-documents {
+  margin-top: var(--spacing-xl);
+}
+
+.recent-documents-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.recent-documents-title {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+}
+
+/* For contract status indicators in tables */
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: var(--spacing-xs);
+}
+
+.status-green {
+  background-color: var(--status-green);
+}
+
+.status-yellow {
+  background-color: var(--status-orange);
+}
+
+.status-red {
+  background-color: var(--status-red);
+}
+
+.status-purple {
+  background-color: var(--status-purple);
+}
+
+.status-blue {
+  background-color: var(--status-blue);
+}
+
+/* Action buttons */
+.action-buttons {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+.action-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--light-gray);
+  color: var(--dark-gray);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+  background-color: var(--medium-gray);
+  color: var(--text-dark);
+}
+
+/* Search bar */
+.search-container {
+  position: relative;
+  max-width: 300px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 16px 10px 40px;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--medium-gray);
+  font-size: var(--font-size-sm);
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--dark-gray);
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: var(--spacing-xl);
+  color: var(--dark-gray);
+}
+
+.empty-state-icon {
+  font-size: 48px;
+  margin-bottom: var(--spacing-md);
+}
+
+.empty-state-title {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-sm);
+}
+
+.empty-state-text {
+  margin-bottom: var(--spacing-md);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+  
+  .stat-number {
+    font-size: var(--font-size-xl);
+  }
+  
+  .table-responsive {
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .time-filter {
+    flex-wrap: wrap;
+  }
+}
