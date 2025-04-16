@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register | Contract Manager</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="left-panel">
+      <h1>Join Us</h1>
+      <p>Create an account to start managing your contracts.</p>
+    </div>
+    <div class="right-panel">
+      <h2>Register</h2>
+      <input type="email" id="register-email" placeholder="Email" />
+      <input type="password" id="register-password" placeholder="Password" />
+      <button type="submit" id="registerBtn">Register</button>
+      <p>Already have an account? <a href="login.html">Login</a></p>
+    </div>
+  </div>
+
+  <script type="module" src="services/firebase-config.js"></script>
+  <script type="module" src="services/auth.js"></script>
+</body>
+</html>
