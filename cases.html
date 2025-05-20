@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Court Case Management</title>
+    <style>
+        /* Main Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0f172a;
+            color: #e2e8f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #1e293b;
+            padding: 15px 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #f8fafc;
+            margin-bottom: 15px;
+        }
+        
+        nav {
+            display: flex;
+            gap: 20px;
+            padding-bottom: 10px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #e2e8f0;
+            font-size: 16px;
+            transition: color 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav a:hover {
+            color: #3b82f6;
+            background-color: #2c3c57;
+        }
+        
+        nav a.active {
+            color: #2563eb;
+            font-weight: bold;
+            border-bottom: 2px solid #2563eb;
+        }
+        
+        /* Cases Styles */
+        .cases-container {
+            padding: 20px;
+        }
+        
+        .filters {
+            margin-bottom: 20px;
+        }
+        
+        .filters select {
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: none;
+            font-size: 14px;
+            background-color: #2c3c57;
+            color: #e2e8f0;
+        }
+        
+        .case-list {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            animation: fadeIn 1s ease-in-out forwards;
+            opacity: 0;
+        }
+        
+        .case-card {
+            background-color: #1e293b;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .case-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+        }
+        
+        .case-card h3 {
+            margin-top: 0;
+            font-size: 18px;
+            color: #f8fafc;
+        }
+        
+        .case-card p {
+            margin: 8px 0;
+            font-size: 14px;
+        }
+        
+        .case-card button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #3b82f6;
+            border: none;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        
+        .case-card button:hover {
+            background-color: #2563eb;
+            transform: scale(1.05);
+        }
+        
+        /* Status Colors */
+        .upcoming {
+            border-left: 6px solid #facc15;
+            animation: pulseYellow 2s infinite;
+        }
+        
+        .ongoing {
+            border-left: 6px solid #22c55e;
+            animation: pulseGreen 2s infinite;
+        }
+        
+        .closed {
+            border-left: 6px solid #ef4444;
+            opacity: 0.85;
+        }
+        
+        @keyframes pulseGreen {
+            0%, 100% {
+                box-shadow: 0 0 8px #357e50;
+            }
+            50% {
+                box-shadow: 0 0 16px #22c55e;
+            }
+        }
+        
+        @keyframes pulseYellow {
+            0%, 100% {
+                box-shadow: 0 0 8px #87752b;
+            }
+            50% {
+                box-shadow: 0 0 16px #facc15;
+            }
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            .case-card {
+                font-size: 14px;
+            }
+            
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Court Case Dashboard ⚖️</h1>
+        <nav>
+            <a href="index.html">Dashboard</a>
+            <a href="contracts.html">Contracts</a>
+            <a href="cases.html" class="active">Court Cases</a>
+            <a href="history.html">History</a>
+        </nav>
+    </header>
+
+    <main class="cases-container">
+        <section class="filters">
+            <label>Status:
+                <select id="filterStatus">
+                    <option value="all">All</option>
+                    <option value="upcoming">Upcoming</option>
+                    <option value="ongoing">Ongoing</option>
+                    <option value="closed">Closed</option>
+                </select>
+            </label>
+        </section>
+
+        <section class="case-list" id="caseList">
+            <!-- Sample case cards -->
+            <div class="case-card upcoming">
+                <h3>Case #00245 - Johnson vs. Smith</h3>
+                <p><strong>Status:</strong> Upcoming</p>
+                <p><strong>Court:</strong> Nairobi High Court</p>
+                <p><strong>Hearing:</strong> May 5, 2025</p>
+                <p><strong>Assigned:</strong> Jane Doe</p>
+                <button>View Details</button>
+            </div>
+
+            <div class="case-card ongoing">
+                <h3>Case #00123 - ABC Ltd vs. XYZ Ltd</h3>
+                <p><strong>Status:</strong> Ongoing</p>
+                <p><strong>Court:</strong> Milimani Law Courts</p>
+                <p><strong>Next Hearing:</strong> April 29, 2025</p>
+                <p><strong>Assigned:</strong> John Maina</p>
+                <button>View Details</button>
+            </div>
+
+            <div class="case-card closed">
+                <h3>Case #00312 - People vs. Kimani</h3>
+                <p><strong>Status:</strong> Closed</p>
+                <p><strong>Court:</strong> Nairobi Magistrate Court</p>
+                <p><strong>Last Hearing:</strong> March 10, 2025</p>
+                <p><strong>Assigned:</strong> Martha K.</p>
+                <button>View Details</button>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById('filterStatus').addEventListener('change', function () {
+            const value = this.value;
+            document.querySelectorAll('.case-card').forEach(card => {
+                if (value === 'all') {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = card.classList.contains(value) ? 'block' : 'none';
+                }
+            });
+        });
+        
+        // Add animation delay to make cards appear sequentially
+        document.querySelectorAll('.case-card').forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
+        });
+    </script>
+</body>
+</html>

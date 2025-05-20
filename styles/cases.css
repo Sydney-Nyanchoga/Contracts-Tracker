@@ -1,0 +1,168 @@
+/* cases.css - Court Cases Styles */
+
+.cases-container {
+    padding: 20px;
+    background-color: #1b3346;
+    color: #e2e8f0;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.filters {
+    margin-bottom: 20px;
+}
+
+.filters select {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: none;
+    font-size: 14px;
+}
+
+.case-list {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    animation: fadeIn 1s ease-in-out forwards;
+    opacity: 0;
+}
+
+.case-card {
+    background-color: #1e293b;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.case-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.case-card h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #f8fafc;
+}
+
+.case-card p {
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+.case-card button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #3b82f6;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.case-card button:hover {
+    background-color: #2563eb;
+    transform: scale(1.05);
+}
+
+.case-card a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Status Colors */
+.upcoming {
+    border-left: 6px solid #facc15;
+    animation: pulseYellow 2s infinite;
+}
+
+.ongoing {
+    border-left: 6px solid #22c55e;
+    animation: pulseGreen 2s infinite;
+}
+
+.closed {
+    border-left: 6px solid #ef4444;
+    opacity: 0.85;
+}
+
+@keyframes pulseGreen {
+    0%, 100% {
+        box-shadow: 0 0 8px #357e50;
+    }
+    50% {
+        box-shadow: 0 0 16px #22c55e;
+    }
+}
+
+@keyframes pulseYellow {
+    0%, 100% {
+        box-shadow: 0 0 8px #87752b;
+    }
+    50% {
+        box-shadow: 0 0 16px #facc15;
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .case-card {
+        font-size: 14px;
+    }
+}
+
+/* Menu Bar Styles */
+.menu-bar {
+    background-color: #1e293b;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.menu-bar .menu-links {
+    display: flex;
+    gap: 20px;
+}
+
+.menu-bar .menu-links a {
+    text-decoration: none;
+    color: #e2e8f0;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.menu-bar .menu-links a:hover {
+    color: #3b82f6;
+}
+
+/* Active Link */
+.menu-bar .menu-links a.active {
+    color: #2563eb;
+    font-weight: bold;
+}
+
+/* Mobile Menu */
+@media (max-width: 600px) {
+    .menu-bar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .menu-bar .menu-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+}

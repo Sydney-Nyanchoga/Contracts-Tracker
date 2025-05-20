@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Profile</title>
+  <link rel="stylesheet" href="styles/profile.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <div class="profile-container">
+    <div class="card">
+      <div class="profile-header">
+        <img id="userPhoto" src="img/default-avatar.png" alt="User Photo" />
+        <h2 id="userName">User Name</h2>
+        <p id="userRole">User Role</p>
+      </div>
+      <div class="profile-details">
+        <h3>Profile Information</h3>
+        <ul>
+          <li><i class="fas fa-envelope"></i> <span id="userEmail">Email</span></li>
+          <li><i class="fas fa-id-badge"></i> <span id="userID">User ID</span></li>
+        </ul>
+      </div>
+      <button id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Log Out</button>
+    </div>
+  </div>
+
+  <script>
+    // Simulate a logged-in user (optional for demo)
+    // localStorage.setItem('currentUser', JSON.stringify({
+    //   name: 'Sarah Johnson',
+    //   email: 'sarah.johnson@example.com',
+    //   role: 'Contract Manager',
+    //   id: 'USR-1001',
+    //   profilePicture: 'img/sarah.jpg'
+    // }));
+
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+
+    if (user) {
+      document.getElementById('userName').textContent = user.name;
+      document.getElementById('userRole').textContent = user.role;
+      document.getElementById('userEmail').textContent = user.email;
+      document.getElementById('userID').textContent = user.id || 'N/A';
+      if (user.profilePicture) {
+        document.getElementById('userPhoto').src = user.profilePicture;
+      }
+    } else {
+      alert("No user logged in.");
+      window.location.href = "login.html"; // redirect if needed
+    }
+
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      localStorage.removeItem('currentUser');
+      window.location.href = 'login.html';
+    });
+  </script>
+</body>
+</html>
