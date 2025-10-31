@@ -15,6 +15,9 @@ A lightweight web-based application for tracking and managing contracts with eas
 - 📱 Responsive design for desktop
 - Additional feature for Court-Case tracking
 
+  Court Cases Feature
+  ![image alt](https://github.com/Sydney-Nyanchoga/Contracts-Tracker/blob/824043edbb0eb666b11fe0586216375c4aea28c5/Court%20Cases.png)
+
 ## 🛠️ Tech Stack
 
 - **Frontend**: HTML, CSS, JavaScript
