@@ -2,6 +2,8 @@
 
 A lightweight web-based application for tracking and managing contracts with ease. Ideal for individuals, freelancers, or small teams who need a simple yet powerful way to organize contract information, deadlines, and client details.
 
+![image alt](https://github.com/Sydney-Nyanchoga/Contracts-Tracker/blob/66a5d72099d8b436817091b0e8a1d9b5b7cb79fc/dashboard.png)
+
 ## 🚀 Features
 
 - 🔐 User authentication (Login/Register) using Firebase Authentication
@@ -10,7 +12,8 @@ A lightweight web-based application for tracking and managing contracts with eas
 - 📂 Organize contracts by status (Active, Expired, Draft)
 - 🔎 Search and filter through contract entries
 - 🧾 Store client and contract metadata
-- 📱 Responsive design for desktop and mobile
+- 📱 Responsive design for desktop
+- Additional feature for Court-Case tracking
 
 ## 🛠️ Tech Stack
 
